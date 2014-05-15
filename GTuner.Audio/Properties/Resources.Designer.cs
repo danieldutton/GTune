@@ -63,54 +63,54 @@ namespace GTuner.Audio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream Fifth {
+        internal static System.IO.UnmanagedMemoryStream A {
             get {
-                return ResourceManager.GetStream("Fifth", resourceCulture);
+                return ResourceManager.GetStream("A", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream First {
+        internal static System.IO.UnmanagedMemoryStream B {
             get {
-                return ResourceManager.GetStream("First", resourceCulture);
+                return ResourceManager.GetStream("B", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream Fourth {
+        internal static System.IO.UnmanagedMemoryStream D {
             get {
-                return ResourceManager.GetStream("Fourth", resourceCulture);
+                return ResourceManager.GetStream("D", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream Second {
+        internal static System.IO.UnmanagedMemoryStream EHigh {
             get {
-                return ResourceManager.GetStream("Second", resourceCulture);
+                return ResourceManager.GetStream("EHigh", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream Sixth {
+        internal static System.IO.UnmanagedMemoryStream ELow {
             get {
-                return ResourceManager.GetStream("Sixth", resourceCulture);
+                return ResourceManager.GetStream("ELow", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream Third {
+        internal static System.IO.UnmanagedMemoryStream G {
             get {
-                return ResourceManager.GetStream("Third", resourceCulture);
+                return ResourceManager.GetStream("G", resourceCulture);
             }
         }
     }

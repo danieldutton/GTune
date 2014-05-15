@@ -2,7 +2,7 @@
 {
     public interface ISoundPlayer
     {
-        void Play(string resourceName, int frequency);
+        void Play(string resourceName, int loopCount);
 
         void Stop();
     }

@@ -3,7 +3,7 @@
 namespace GTuner.UnitTests
 {
     [TestFixture]
-    public class GuitarStringPlayer_Should
+    public class GuitarNotePlayer_Should
     {
         [Test]
         public void Foo()

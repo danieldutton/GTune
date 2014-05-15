@@ -7,17 +7,17 @@ namespace GTuner.Presentation
 {
     static class Program
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            var soundPlayer = new GuitarStringPlayer();
+            
+            //Resource Handler
+            IResourceHandler resourceHandler = new WavResourceHandler();
+            var soundPlayer = new GuitarNotePlayer(resourceHandler);
 
-            Application.Run(new Form1(soundPlayer));
+            Application.Run(new Display(soundPlayer));
         }
     }
 }
