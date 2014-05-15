@@ -1,4 +1,4 @@
 GTune
 =====
 
-Wav play project - simple guitar tuner
+A Guitar Tuning App
