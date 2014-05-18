@@ -1,7 +1,6 @@
 ﻿using GTuner.Audio.Interfaces;
 using GTuner.Audio.Model;
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace GTuner.Presentation
@@ -10,47 +9,40 @@ namespace GTuner.Presentation
     {
         private readonly ISoundPlayer _soundPlayer;
 
-        private int LoopBy
-        {
-            get { return (int)_comboBoxLoopBy.SelectedValue; }
-        }
+        private readonly IResourceHandler _resourceHandler;
 
         private string ResourceName
         {
             get { return _comboBoxNotes.SelectedValue.ToString(); }
         }
 
-        public Display(ISoundPlayer soundPlayer)
+        public Display(ISoundPlayer soundPlayer, IResourceHandler resourceHandler)
         {
             _soundPlayer = soundPlayer;
+            _resourceHandler = resourceHandler;
             
             InitializeComponent();
-            PopulateGuitarNoteComboBox();
-            PopulateLoopByComboBox();
+            DisplayNotes();
         }
 
-        private void PopulateGuitarNoteComboBox()
+
+        private void DisplayNotes()
         {
-            Array notes = Enum.GetValues(typeof(Notes));
+            Array notes = Enum.GetValues(typeof(GuitarNotes));
 
             _comboBoxNotes.DataSource = notes;
         }
 
-        private void PopulateLoopByComboBox()
+        private void PlayNote_Click(object sender, EventArgs e)
         {
-            IEnumerable<int> loopBy = new List<int> {1, 2, 3};
+            object resource = _resourceHandler.GetResource(ResourceName);
 
-            _comboBoxLoopBy.DataSource = loopBy;
+            _soundPlayer.Play(resource);
         }
 
-        private void PlaySelectedNote_Click(object sender, EventArgs e)
-        {
-            _soundPlayer.Play(ResourceName, LoopBy);
-        }
-
-        private void StopSelectedNote_Click(object sender, EventArgs e)
+        private void StopNote_Click(object sender, EventArgs e)
         {
             _soundPlayer.Stop();
-        }            
+        }           
     }
 }

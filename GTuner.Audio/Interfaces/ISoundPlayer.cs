@@ -2,8 +2,7 @@
 {
     public interface ISoundPlayer
     {
-        void Play(string resourceName, int loopCount);
-
+        void Play(object resourceName);
         void Stop();
     }
 }

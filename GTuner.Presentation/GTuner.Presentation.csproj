@@ -69,9 +69,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\GTuner.Audio\GTuner.Audio.csproj">
       <Project>{6B221971-E1BD-4BA3-ABDF-0004499DCAC4}</Project>
       <Name>GTuner.Audio</Name>

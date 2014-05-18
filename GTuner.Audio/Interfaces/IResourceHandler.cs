@@ -2,6 +2,6 @@
 {
     public interface IResourceHandler
     {
-        object GetResource(string resourceName);
+        object GetResource(string resourceStream);
     }
 }

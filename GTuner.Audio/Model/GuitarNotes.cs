@@ -1,6 +1,6 @@
 ﻿namespace GTuner.Audio.Model
 {
-    public enum Notes
+    public enum GuitarNotes
     {
         ELow,
         A,

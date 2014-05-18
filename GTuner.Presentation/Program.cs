@@ -1,7 +1,7 @@
 ﻿using GTuner.Audio;
+using GTuner.Audio.Interfaces;
 using System;
 using System.Windows.Forms;
-using GTuner.Audio.Interfaces;
 
 namespace GTuner.Presentation
 {
@@ -15,9 +15,9 @@ namespace GTuner.Presentation
             
             //Resource Handler
             IResourceHandler resourceHandler = new WavResourceHandler();
-            var soundPlayer = new GuitarNotePlayer(resourceHandler);
+            var guitarNotePlayer = new GuitarNotePlayer();
 
-            Application.Run(new Display(soundPlayer));
+            Application.Run(new Display(guitarNotePlayer, resourceHandler));
         }
     }
 }

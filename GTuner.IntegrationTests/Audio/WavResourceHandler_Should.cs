@@ -1,50 +1,34 @@
-﻿using System.IO;
-using GTuner.Audio;
+﻿using GTuner.Audio;
 using GTuner.Audio.Interfaces;
 using GTuner.Audio.Model;
 using NUnit.Framework;
-using System;
+using System.IO;
 
 namespace GTuner.IntegrationTests.Audio
 {
     [TestFixture]
     public class WavResourceHandler_Should
     {
-        [Test]
-        [ExpectedException(typeof(ArgumentException))]
-        public void GetResource_ThrowAnArgumentException_IfParamIsNull()
+        private IResourceHandler _sut;
+
+        [SetUp]
+        public void Init()
         {
-            IResourceHandler sut = new WavResourceHandler();
-
-            sut.GetResource(null);
-        }
-
-        [Test]
-        [ExpectedException(typeof(ArgumentException))]
-        public void GetResource_ThrowAnArgumentException_IfParamIsEmptyString()
-        {
-            IResourceHandler sut = new WavResourceHandler();
-
-            sut.GetResource(string.Empty);
+            _sut = new WavResourceHandler();
         }
 
         [Test]
         public void GetResource_ReturnNull_IfResourceDoesntExist()
         {
-            IResourceHandler sut = new WavResourceHandler();
-
-            object actual = sut.GetResource("NonExistantResource");
+            object actual = _sut.GetResource("NonExistantResource");
 
             Assert.IsNull(actual);
-            Assert.IsNotInstanceOf<Stream>(actual);
         }
 
         [Test]
         public void GetResource_ReturnAStream_ForWavELow()
         {
-            IResourceHandler sut = new WavResourceHandler();
-
-            object actual = sut.GetResource(Notes.ELow.ToString());
+            object actual = _sut.GetResource(GuitarNotes.ELow.ToString());
 
             Assert.IsNotNull(actual);
             Assert.IsInstanceOf<Stream>(actual);
@@ -53,9 +37,7 @@ namespace GTuner.IntegrationTests.Audio
         [Test]
         public void GetResource_ReturnAStream_ForWavLowA()
         {
-            IResourceHandler sut = new WavResourceHandler();
-
-            object actual = sut.GetResource(Notes.A.ToString());
+            object actual = _sut.GetResource(GuitarNotes.A.ToString());
 
             Assert.IsNotNull(actual);
             Assert.IsInstanceOf<Stream>(actual);
@@ -64,9 +46,7 @@ namespace GTuner.IntegrationTests.Audio
         [Test]
         public void GetResource_ReturnAStream_ForWavD()
         {
-            IResourceHandler sut = new WavResourceHandler();
-
-            object actual = sut.GetResource(Notes.D.ToString());
+            object actual = _sut.GetResource(GuitarNotes.D.ToString());
 
             Assert.IsNotNull(actual);
             Assert.IsInstanceOf<Stream>(actual);
@@ -75,9 +55,7 @@ namespace GTuner.IntegrationTests.Audio
         [Test]
         public void GetResource_ReturnAStream_ForWavG()
         {
-            IResourceHandler sut = new WavResourceHandler();
-
-            object actual = sut.GetResource(Notes.G.ToString());
+            object actual = _sut.GetResource(GuitarNotes.G.ToString());
 
             Assert.IsNotNull(actual);
             Assert.IsInstanceOf<Stream>(actual);
@@ -86,9 +64,7 @@ namespace GTuner.IntegrationTests.Audio
         [Test]
         public void GetResource_ReturnAStream_ForWavB()
         {
-            IResourceHandler sut = new WavResourceHandler();
-
-            object actual = sut.GetResource(Notes.B.ToString());
+            object actual = _sut.GetResource(GuitarNotes.B.ToString());
 
             Assert.IsNotNull(actual);
             Assert.IsInstanceOf<Stream>(actual);
@@ -97,12 +73,16 @@ namespace GTuner.IntegrationTests.Audio
         [Test]
         public void GetResource_ReturnAStream_ForWavEHigh()
         {
-            IResourceHandler sut = new WavResourceHandler();
-
-            object actual = sut.GetResource(Notes.EHigh.ToString());
+            object actual = _sut.GetResource(GuitarNotes.EHigh.ToString());
 
             Assert.IsNotNull(actual);
             Assert.IsInstanceOf<Stream>(actual);
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+            _sut = null;
         }
     }
 }

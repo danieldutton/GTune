@@ -1,5 +1,5 @@
-﻿using System;
-using GTuner.Audio.Interfaces;
+﻿using GTuner.Audio.Interfaces;
+using System;
 using System.IO;
 using System.Media;
 using System.Threading;
@@ -9,55 +9,48 @@ namespace GTuner.Audio
 {
     public class GuitarNotePlayer : ISoundPlayer
     {
-        private readonly IResourceHandler _resourceHandler;
-        
-        private SoundPlayer _soundPlayer;
+        private readonly SoundPlayer _soundPlayer;
 
-        private CancellationTokenSource cts = new CancellationTokenSource();
+        private CancellationTokenSource _taskCancelSource;
 
 
-        public GuitarNotePlayer(IResourceHandler resourceHandler)
+        public GuitarNotePlayer()
         {
-            _resourceHandler = resourceHandler;
+            _soundPlayer = new SoundPlayer();
+            _taskCancelSource = new CancellationTokenSource();
         }
 
-        public void Play(string resourceName, int loopCount)
-        {
-            var wavResource = _resourceHandler.GetResource(resourceName);
 
-            if (wavResource == null) throw new ArgumentNullException();
-
-            InitialiseSoundPlayer(wavResource);
-            PlayWavFile(loopCount);
-        }
-       
-        private void InitialiseSoundPlayer(object resource)
+        public void Play(object resourceStream)
         {
-            _soundPlayer = new SoundPlayer((Stream) resource);
-            _soundPlayer.Load();
+            if(resourceStream == null)
+                throw new ArgumentNullException("resourceStream");
+
+            _soundPlayer.Stream = resourceStream as Stream;
+
+            if (_soundPlayer.Stream != null)
+                _soundPlayer.Load();
+
+            PlayWavFile();
         }
 
-        private void PlayWavFile(int frequency)
+        private void PlayWavFile()
         {
-            var task = new Task(()=>
-            {
-                for (int i = 0; i < frequency; i++)
-                {
-                    if (cts.IsCancellationRequested)
-                        return;
-
-                    _soundPlayer.Play();
-
-                    Thread.Sleep(3000);
-                }    
-            },cts.Token);
-            task.Start();
+            var task = new Task(() => 
+                _soundPlayer.Play(), _taskCancelSource.Token);
+            
+            task.Start();            
         }
 
         public void Stop()
         {
-            cts.Cancel();  
-            cts = new CancellationTokenSource();            
+            _soundPlayer.Stop();
+            _soundPlayer.Stream = null;
+            _taskCancelSource.Cancel();
+            _taskCancelSource = new CancellationTokenSource();
+            _soundPlayer.Dispose();
         }
     }
+
+    //ToDo - Abstract to unit test more but only if the app grows in complexity
 }

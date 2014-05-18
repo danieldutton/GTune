@@ -1,5 +1,6 @@
 ﻿using GTuner.Audio.Interfaces;
 using System;
+using System.Resources;
 
 namespace GTuner.Audio
 {
@@ -10,7 +11,7 @@ namespace GTuner.Audio
             if(string.IsNullOrEmpty(resourceName)) 
                 throw new ArgumentException("null or empty forbidden", "resourceName");
 
-            var resourceManager = Properties.Resources.ResourceManager;
+            ResourceManager resourceManager = Properties.Resources.ResourceManager;
             
             object wavResource = resourceManager.GetObject(resourceName);
             
