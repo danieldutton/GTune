@@ -28,7 +28,7 @@ namespace GTuner.IntegrationTests.Audio
         [Test]
         public void GetResource_ReturnAStream_ForWavELow()
         {
-            object actual = _sut.GetResource(GuitarNotes.ELow.ToString());
+            object actual = _sut.GetResource("Guitar_ELow");
 
             Assert.IsNotNull(actual);
             Assert.IsInstanceOf<Stream>(actual);
@@ -37,7 +37,7 @@ namespace GTuner.IntegrationTests.Audio
         [Test]
         public void GetResource_ReturnAStream_ForWavLowA()
         {
-            object actual = _sut.GetResource(GuitarNotes.A.ToString());
+            object actual = _sut.GetResource("Guitar_A");
 
             Assert.IsNotNull(actual);
             Assert.IsInstanceOf<Stream>(actual);
@@ -46,7 +46,7 @@ namespace GTuner.IntegrationTests.Audio
         [Test]
         public void GetResource_ReturnAStream_ForWavD()
         {
-            object actual = _sut.GetResource(GuitarNotes.D.ToString());
+            object actual = _sut.GetResource("Guitar_D");
 
             Assert.IsNotNull(actual);
             Assert.IsInstanceOf<Stream>(actual);
@@ -55,7 +55,7 @@ namespace GTuner.IntegrationTests.Audio
         [Test]
         public void GetResource_ReturnAStream_ForWavG()
         {
-            object actual = _sut.GetResource(GuitarNotes.G.ToString());
+            object actual = _sut.GetResource("Guitar_G");
 
             Assert.IsNotNull(actual);
             Assert.IsInstanceOf<Stream>(actual);
@@ -64,7 +64,7 @@ namespace GTuner.IntegrationTests.Audio
         [Test]
         public void GetResource_ReturnAStream_ForWavB()
         {
-            object actual = _sut.GetResource(GuitarNotes.B.ToString());
+            object actual = _sut.GetResource("Guitar_B");
 
             Assert.IsNotNull(actual);
             Assert.IsInstanceOf<Stream>(actual);
@@ -73,7 +73,7 @@ namespace GTuner.IntegrationTests.Audio
         [Test]
         public void GetResource_ReturnAStream_ForWavEHigh()
         {
-            object actual = _sut.GetResource(GuitarNotes.EHigh.ToString());
+            object actual = _sut.GetResource("Guitar_EHigh");
 
             Assert.IsNotNull(actual);
             Assert.IsInstanceOf<Stream>(actual);

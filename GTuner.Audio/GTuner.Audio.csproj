@@ -36,8 +36,10 @@
   <ItemGroup>
     <Compile Include="Interfaces\IResourceHandler.cs" />
     <Compile Include="Interfaces\ISoundPlayer.cs" />
+    <Compile Include="Model\BassNotes.cs" />
     <Compile Include="Model\GuitarNotes.cs" />
     <Compile Include="GuitarNotePlayer.cs" />
+    <Compile Include="Model\Instrument.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -49,26 +51,43 @@
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\A.wav" />
+    <None Include="Resources\Guitar_A.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\B.wav" />
+    <None Include="Resources\Guitar_B.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\D.wav" />
+    <None Include="Resources\Guitar_D.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\EHigh.wav" />
+    <None Include="Resources\Guitar_EHigh.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ELow.wav" />
+    <None Include="Resources\Guitar_ELow.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\G.wav" />
+    <None Include="Resources\Guitar_G.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\Bass\" />
+    <Folder Include="Resources\Guitar\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bass_A.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bass_D.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bass_E.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bass_G.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

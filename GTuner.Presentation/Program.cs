@@ -13,7 +13,6 @@ namespace GTuner.Presentation
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             
-            //Resource Handler
             IResourceHandler resourceHandler = new WavResourceHandler();
             var guitarNotePlayer = new GuitarNotePlayer();
 
